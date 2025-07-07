@@ -16,27 +16,21 @@ function atualizarCard() {
         <h3>${nome}</h3>
         <p>${mensagem}</p>
         <div class="botoes">
-          <button onclick="atenderVisitante()">Atender</button>
-          <button onclick="recusarVisitante()">Recusar</button>
-          <button onclick="estouOcupado()">Estou Ocupado</button>
+          <button onclick="responderVisitante('O morador irá te atender agora.')">Atender</button>
+          <button onclick="responderVisitante('O morador recusou a visita.')">Recusar</button>
+          <button onclick="responderVisitante('O morador está ocupado no momento.')">Estou Ocupado</button>
         </div>
       </div>
     `;
   }
 }
 
-function atenderVisitante() {
-  alert("Você atendeu o visitante.");
-  document.getElementById("notificacao").innerHTML = "";
-}
-
-function recusarVisitante() {
-  alert("Você recusou o visitante.");
-  document.getElementById("notificacao").innerHTML = "";
-}
-
-function estouOcupado() {
-  alert("Você informou que está ocupado.");
+function responderVisitante(resposta) {
+  localStorage.setItem("campainhaResposta", JSON.stringify({
+    resposta,
+    data: Date.now()
+  }));
+  alert(resposta);
   document.getElementById("notificacao").innerHTML = "";
 }
 
