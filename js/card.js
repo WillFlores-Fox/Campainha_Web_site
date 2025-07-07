@@ -30,6 +30,7 @@ function responderVisitante(resposta) {
     resposta,
     data: Date.now()
   }));
+
   alert(resposta);
   document.getElementById("notificacao").innerHTML = "";
 }
